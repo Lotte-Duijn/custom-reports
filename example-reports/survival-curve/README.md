@@ -1,4 +1,9 @@
 # Survival curve
+
+## Purpose and scope
+This repository aims to provide a Custom Report for creating a Survival Curve within Viedoc.
+
+## 
 This report displays a survival analysis using the Survival package, as well as a more complicated plot using the 'plotly' package.
 This custom report generates the following output:
 
