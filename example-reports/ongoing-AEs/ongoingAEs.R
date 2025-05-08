@@ -32,6 +32,7 @@ ae <- edcData$Forms$AE
 ong <- filter(ae, AEONGOCD == 1)
 
 # Sort by Start Date:
+ong$AESTDAT <- as.Date(ong$AESTDAT, format = "%d-%b-%Y")
 sortong <- arrange(ong, AESTDAT)
 
 # Select the necessary columns to exclude code list values and other IDs:
@@ -40,6 +41,7 @@ ongcolumns <- select(sortong, SiteName, SubjectId, AESPID, AETERM, AESTDAT, AEON
 
 
 # Filter for AEs that are ongoing for more than 30 days:
+date_of_download <- as.Date(params$dateOfDownload, format = "%d-%b-%Y")
 aeong30 <- filter(ongcolumns, as.Date(AESTDAT) < as.Date(params$dateOfDownload) - 30)
 
 # Prepare Data For Display per Utility Functions for both reports:
